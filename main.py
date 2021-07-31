@@ -164,34 +164,33 @@ class WarTank:
         sleep(random.uniform(1, 2))
 
     def run(self):
-        try:
-            print('Вход...')
+        while True:
+            try:
+                print('Вход...')
+                self.auth()
+                sleep(random.uniform(1, 2))
+            except:
+                print('Авторизация не выполена\nЛогин:{}\nПароль:{}'.format(self.login, self.password))
+            self.builds()
 
-            self.auth()
+            self.battle()
             sleep(random.uniform(1, 2))
-        except:
-            print('Авторизация не выполена\nЛогин:{}\nПароль:{}'.format(self.login, self.password))
-        self.builds()
-
-        self.battle()
-        sleep(random.uniform(1, 2))
-        self.pve_join()
-        sleep(random.uniform(1, 2))
-        self.convoy()
-        sleep(random.uniform(1, 2))
-        try:
-            self.coins()
-        except:
-            print('Зарабатывай опыт и собирай коллекции!')
-        self.missions()
-        sleep(random.uniform(1, 2))
+            self.pve_join()
+            sleep(random.uniform(1, 2))
+            self.convoy()
+            sleep(random.uniform(1, 2))
+            try:
+                self.coins()
+            except:
+                print('Зарабатывай опыт и собирай коллекции!')
+            self.missions()
+            sleep(random.uniform(1, 2))
 
 
 with open('accounts_wartank.json') as json_load_accounts:
     accounts = json.load(json_load_accounts)
 
-while true:
-    for account in accounts:
-        w = WarTank(account['login'], account['password'])
-        w.run()
-        sleep(3500)
+
+for account in accounts:
+    w = WarTank(account['login'], account['password'])
+    w.run()
