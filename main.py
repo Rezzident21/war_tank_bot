@@ -190,6 +190,8 @@ class WarTank:
 with open('accounts_wartank.json') as json_load_accounts:
     accounts = json.load(json_load_accounts)
 
-for account in accounts:
-    w = WarTank(account['login'], account['password'])
-    w.run()
+while true:
+    for account in accounts:
+        w = WarTank(account['login'], account['password'])
+        w.run()
+        sleep(3500)
