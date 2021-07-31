@@ -185,6 +185,7 @@ class WarTank:
                 print('Зарабатывай опыт и собирай коллекции!')
             self.missions()
             sleep(random.uniform(1, 2))
+            sleep(random.uniform(3600,4500))
 
 
 with open('accounts_wartank.json') as json_load_accounts:
