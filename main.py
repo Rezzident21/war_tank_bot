@@ -175,8 +175,11 @@ class WarTank:
 
             self.battle()
             sleep(random.uniform(1, 2))
-            self.pve_join()
-            sleep(random.uniform(1, 2))
+            try:
+                self.pve_join()
+                sleep(random.uniform(1, 2))
+            except Exception as e:
+                print(e)
             self.convoy()
             sleep(random.uniform(1, 2))
             try:
